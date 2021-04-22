@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { ComponentsComponent } from './topics/components/components.component';
 import { DashBoardComponent } from './topics/components/dash-board/dash-board.component';
+import { InteractionComponent } from './topics/components/interaction/interaction.component';
 import { LifeCycleComponent } from './topics/components/life-cycle/life-cycle.component';
 import { DirectivesComponent } from './topics/directives/directives.component';
 import { FormsComponent } from './topics/forms/forms.component';
@@ -16,7 +17,8 @@ const routes: Routes = [
     component: ComponentsComponent,
     children : [
       {path : '', component : DashBoardComponent},
-      {path : 'LifeCycle', component : LifeCycleComponent}
+      {path : 'LifeCycle', component : LifeCycleComponent},
+      {path : 'Interaction', component : InteractionComponent}
     ]
   },
   {

@@ -1,0 +1,18 @@
+<mat-form-field class="example-form-field">
+  <input matInput type="text" name="inp1" [(ngModel)]="value" placeholder="First Value">
+</mat-form-field>
+<mat-divider></mat-divider>
+
+<mat-form-field class="example-form-field">
+  <input matInput type="text" name="inp2" [(ngModel)]="anotherValue" placeholder="Second Value">
+</mat-form-field>
+
+<mat-divider></mat-divider>
+
+<mat-card>
+  <button mat-raised-button color="primary" (click) = "pass=true;">Pass to Child</button>
+</mat-card>
+
+<mat-divider></mat-divider>
+
+<app-interaction-child *ngIf="pass" [childData] = "value" [anotherChildData] = "anotherValue"></app-interaction-child>

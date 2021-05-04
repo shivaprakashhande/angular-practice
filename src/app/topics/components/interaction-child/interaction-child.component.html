@@ -1,2 +1,21 @@
-<mat-card *ngIf="childData">{{childData}}</mat-card>
-<mat-card *ngIf="anotherChildData">{{anotherChildData}}</mat-card>
+<div class="p-2" style="background-color: cornsilk;">
+  <h2>CHILD COMPONENT</h2>
+  <h2 *ngIf="childData"> Value from @Input : {{childData}}</h2>
+  <h2 *ngIf="myName"> Value from Local Variable : {{myName}}</h2>
+  <div class="form-group">
+    <input class="form-control" type="text" name="inp2" placeholder="Enter Something and click Pass to Parent.." [(ngModel)]="childInput">
+  </div>
+  <div class="mb-5">
+    <button class="btn btn-dark" color="warn" (click)="passToParent.emit(childInput)">Pass to Parent</button>
+  </div>
+  <div class="form-group mb-3">
+    <h3>This will be alerted via @ViewChild :</h3>
+    <input type="text" class="form-control" #viewChildRef placeholder="Click View Data to alert the value..">
+  </div>
+  <button class="btn btn-dark mb-3" color="warn" (click)="showElementVal()">View Data</button>
+
+  <div class="mx-2" style="background-color: lightgreen;">
+    <ng-content></ng-content>
+  </div>
+
+</div>

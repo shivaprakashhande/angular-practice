@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, SimpleChange } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChange, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-interaction-child',
@@ -7,7 +7,12 @@ import { Component, Input, OnInit, SimpleChange } from '@angular/core';
 })
 export class InteractionChildComponent implements OnInit {
   @Input() childData:any;
-  @Input() anotherChildData:any;
+  @Input('anotherChildData') myName:any;
+  @Output('toParent') passToParent = new EventEmitter();
+  @ViewChild('viewChildRef') inputRef : any;
+  someVar : string = 'hello!';
+  toBeSentToParent = '';
+  childInput : any;
   constructor() { }
 
   ngOnInit(): void {
@@ -17,6 +22,18 @@ export class InteractionChildComponent implements OnInit {
 
   ngOnChanges(ch : SimpleChange) {
     console.log('on changes', ch);
+  }
+
+  someMethod () {
+    alert('This is a child method!');
+  }
+
+  anotherMethod () {
+    alert('This is another child method!');
+  }
+
+  showElementVal () {
+    alert(this.inputRef.nativeElement.value);
   }
 
 }

@@ -13,15 +13,40 @@ export class InteractionChildComponent implements OnInit {
   someVar : string = 'hello!';
   toBeSentToParent = '';
   childInput : any;
-  constructor() { }
+  constructor() {
+    console.log('in constructor')
+  }
 
   ngOnInit(): void {
     console.log('on init');
-
   }
 
   ngOnChanges(ch : SimpleChange) {
     console.log('on changes', ch);
+  }
+
+  ngDoCheck() {
+    console.log('ngDoCheck');
+  }
+
+  ngAfterContentInit() {
+    console.log('ngAfterContentInit');
+  }
+
+  ngAfterContentChecked() {
+    console.log('ngAfterContentChecked');
+  }
+
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit');
+  }
+
+  ngAfterViewChecked() {
+    console.log('ngAfterViewChecked');
+  }
+
+  ngOnDestroy() {
+    console.log('ngOnDestroy');
   }
 
   someMethod () {

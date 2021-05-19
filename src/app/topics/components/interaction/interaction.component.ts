@@ -12,6 +12,8 @@ export class InteractionComponent implements OnInit {
   pass         = false;
   localVar     = '';
   dataFromChild= '';
+  isFirstChildDisplay : boolean = true;
+  isSecondChildDisplay : boolean = false;
 
   @ViewChild(InteractionChildComponent) childComponent :any;
   constructor() { }
@@ -21,6 +23,16 @@ export class InteractionComponent implements OnInit {
 
   updateLocalVar (val : string) {
     this.localVar = val;
+  }
+
+  showChild (comp : string) {
+    if (comp == 'first') {
+      this.isFirstChildDisplay = true;
+      this.isSecondChildDisplay = false;
+    } else {
+      this.isFirstChildDisplay = false;
+      this.isSecondChildDisplay = true;
+    }
   }
 
   reset() {

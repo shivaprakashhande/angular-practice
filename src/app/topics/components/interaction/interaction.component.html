@@ -1,42 +1,55 @@
 <div class="container" style="background-color: blanchedalmond;">
   <h2>PARENT COMPONENT</h2>
+
+  <div class="btn-group btn-group-lg" role="group" aria-label="Basic outlined example">
+    <button type="button" class="btn btn-outline-success" (click)="showChild('first')">Show First Child</button>
+    <button type="button" class="btn btn-outline-primary" (click)="showChild('second')">Show Second Child</button>
+  </div>
+
   <div class="row p-3">
     <div class="col-6">
       <div class="form-group">
         <label for="inp1">This will be sent to child component using @Input decorator</label>
-        <input class="form-control" type="text" name="inp1" [(ngModel)]="value" placeholder="Enter something to pass to child...">
+        <input class="form-control" type="text" name="inp1" [(ngModel)]="value"
+               placeholder="Enter something to pass to child...">
       </div>
       <h2 *ngIf="dataFromChild">From child using @Output : {{dataFromChild}}</h2>
     </div>
     <div class="col-6">
       <div class="form-group">
         <label for="inp2">This will be sent to child component via a Local Variable</label>
-        <input class="form-control" type="text" name="inp2" placeholder="Enter something and Click Pass To Child.." #refInput>
+        <input class="form-control" type="text" name="inp2" placeholder="Enter something and Click Pass To Child.."
+               #refInput>
       </div>
-      <button class="btn btn-sm btn-secondary" (click) = "updateLocalVar(refInput.value)">Pass To Child</button>
+      <button class="btn btn-sm btn-secondary" (click)="updateLocalVar(refInput.value)">Pass To Child</button>
     </div>
   </div>
   <div class="row p-3">
     <div class="col-6">
-      <button class="btn btn-lg btn-outline-info" (click)="refChild.someMethod()">Click here to invoke child method via local variable.</button>
+      <button class="btn btn-lg btn-outline-info" (click)="childComponent.anotherMethod()">Click here to invoke child
+        method via local variable.</button>
     </div>
     <div class="col-6">
-      <button class="btn btn-lg btn-outline-success" (click)="childComponent.anotherMethod()">Click here invoke child component using @ViewChild</button>
+      <button class="btn btn-lg btn-outline-success" (click)="childComponent.anotherMethod()">Click here invoke child
+        component using @ViewChild</button>
     </div>
   </div>
   <div class="row p-3">
     <div class="col">
       <app-interaction-child
+        *ngIf="isFirstChildDisplay"
         [childData]="value"
         [anotherChildData]="localVar"
-        (toParent)="dataFromChild=$event"
-        #refChild>
+        #refChild
+        (toParent)="dataFromChild=$event">
         <div class="container">
           <h2>This is introduced using ng-content directive</h2>
           <h3 *ngIf="dataFromChild">Child value : {{dataFromChild}}</h3>
           <h3 *ngIf="value">Parent value : {{value}}</h3>
         </div>
       </app-interaction-child>
+
+      <app-interaction-child-second *ngIf="isSecondChildDisplay"></app-interaction-child-second>
     </div>
   </div>
   <div class="row p-3">

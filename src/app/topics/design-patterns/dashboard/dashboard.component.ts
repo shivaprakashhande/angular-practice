@@ -5,9 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
-
-  topics = ['Components', 'DesignPatterns', 'Forms', 'Pipes', 'Directives', 'Services'];
+export class DSDashboardComponent implements OnInit {
+  topics = ['Factory'];
 
   constructor() { }
 

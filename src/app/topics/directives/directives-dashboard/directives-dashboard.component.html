@@ -1,3 +1,6 @@
-<mat-grid-list cols="3" rowHeight="2:1">
-  <mat-grid-tile *ngFor="let topic of topics" routerLink="/Directives/{{topic}}"><button mat-button color="primary"><h2>{{topic}}</h2></button> </mat-grid-tile>
-</mat-grid-list>
+<div class="list-group">
+  <a *ngFor="let topic of topics" routerLink="/Directives/{{topic}}"
+     class="list-group-item list-group-item-action list-group-item-success d-flex justify-content-center">
+    <h1>{{topic}}</h1>
+  </a>
+</div>

@@ -9,6 +9,10 @@ export class CustomDirectiveComponent implements OnInit {
 
   constructor() { }
 
+  condition : boolean = true;
+
+  defaultClassName = 'btn-outline-danger';
+
   ngOnInit(): void {
   }
 

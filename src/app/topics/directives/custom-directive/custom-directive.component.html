@@ -1,6 +1,14 @@
 <h2 appChangeElUsingElementRef>This element is modified by updating style via ElementRef instance.</h2>
+<hr>
 
 <h2 appChangeElUsingRenderer>This is modified using Renderer2 Class</h2>
+<hr>
 
+<p>Change the style of the button using <strong>@HostListener, @HostBinding and Directive Input</strong></p>
+<button class="btn" [appUpdateBtn]="defaultClassName">Click to change the style of the button</button>
+<hr>
+<div class="my-3">
+  <button class="btn btn-dark my-3" (click) = "condition = !condition"> <span *ngIf="condition; else elseBlock" >Show</span> <ng-template #elseBlock>Hide</ng-template> the below section </button>
 
-<button appUpdateBtn class="btn">Click to change the style of the button</button>
+  <p *appUnless="condition">This is getting toggled using <strong>Custom Structural Directive appUnless</strong> </p>
+</div>

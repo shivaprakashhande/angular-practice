@@ -1,12 +1,6 @@
-import { Injectable } from '@angular/core';
-
-console.log('In Service A');
-
-@Injectable({
-  providedIn : 'root'
-})
-
+console.log('in service a');
 export class ServiceAService {
-
-  constructor() { }
+  logger (status : string) :void {
+    console.log(status);
+  }
 }

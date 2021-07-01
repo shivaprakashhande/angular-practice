@@ -1,17 +1,24 @@
-import { Directive, HostBinding, HostListener } from '@angular/core';
+import { Directive, HostBinding, HostListener, Input, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[appUpdateBtn]'
 })
-export class UpdateBtnDirective {
+export class UpdateBtnDirective implements OnInit{
 
 
   constructor() { }
 
-  @HostBinding('class') className : string = 'btn-outline-primary';
+  @Input('appUpdateBtn') defaultClass : string = '';
+
+  @HostBinding('class') className : string = '';
+
+
+  ngOnInit() {
+    this.className = this.defaultClass;
+  }
 
   @HostListener('click', ['$event.target']) updateBtnStyle (el:Element) {
-    this.className = 'btn-outline-secondary';
+    this.className = 'btn-outline-success';
   }
 
 

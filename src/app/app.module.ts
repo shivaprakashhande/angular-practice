@@ -32,6 +32,8 @@ import { CustomDirectiveComponent } from './topics/directives/custom-directive/c
 import { ChangeBackgroundDirective } from './topics/directives/change-background.directive';
 import { ChangeElUsingRendererDirective } from './topics/directives/change-el-using-renderer.directive';
 import { UpdateBtnDirective } from './topics/directives/update-btn.directive';
+import { AppUnlessDirective } from './topics/directives/app-unless.directive';
+import { TestingComponent } from './topics/testing/testing.component';
 
 
 @NgModule({
@@ -56,7 +58,9 @@ import { UpdateBtnDirective } from './topics/directives/update-btn.directive';
     DirectivesDashboardComponent,
     CustomDirectiveComponent,
     ChangeElUsingRendererDirective,
-    UpdateBtnDirective
+    UpdateBtnDirective,
+    AppUnlessDirective,
+    TestingComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceAService } from 'src/app/services/service-a.service';
 
 @Component({
   selector: 'app-dash-board',
@@ -10,6 +11,9 @@ export class DashBoardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('in dashboard');
+    var sa = new ServiceAService();
+    var sa1 = new ServiceAService();
   }
 
 }
